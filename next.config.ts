@@ -1,5 +1,8 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {};
+const nextConfig = {
+  output: "standalone",
+  // ... other config
+};
 
 export default nextConfig;
