@@ -1,0 +1,25 @@
+name: CI Build & Push Images
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - src/**
+      - Dockerfile
+      - pyproject.toml
+      - uv.lock
+      - .github/workflows/ci-docker-build-push.yaml
+
+jobs:
+  build-image:
+    name: 🚀 Build Image
+    uses: opencloudhub/.github/.github/workflows/shared-ci-docker-build-push.yaml@main
+    with:
+      repo-name: "demo-app-frontend"
+      context: "."
+      dockerfile: "Dockerfile"
+      target: "production"
+      push-on-pr: true
+    secrets:
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
