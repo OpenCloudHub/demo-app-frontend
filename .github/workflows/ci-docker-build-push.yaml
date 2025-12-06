@@ -21,7 +21,7 @@ jobs:
       target: "production"
       push-on-pr: true
       build-args: |
-        NEXT_PUBLIC_API_URL=http://api.demo-app-genai-backend.demo-app.svc.cluster.local:8000
+        NEXT_PUBLIC_API_URL=https://api.demo-app.opencloudhub.org
     secrets:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
