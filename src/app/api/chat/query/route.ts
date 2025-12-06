@@ -2,7 +2,7 @@ import { NextRequest } from "next/server";
 import { context, propagation } from "@opentelemetry/api";
 import { logger } from "@/lib/logger";
 
-const API_URL = process.env.API_URL || "http://localhost:8000/api/v1";
+const API_URL = process.env.API_URL || "http://localhost:8000";
 
 export async function POST(request: NextRequest) {
   const body = await request.json();

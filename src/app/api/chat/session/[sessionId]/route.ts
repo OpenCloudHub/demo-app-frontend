@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { context, propagation } from "@opentelemetry/api";
 
-const API_URL = process.env.API_URL || "http://localhost:8000/api/v1";
+const API_URL = process.env.API_URL || "http://localhost:8000";
 
 export async function DELETE(
   request: Request,
