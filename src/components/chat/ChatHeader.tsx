@@ -32,7 +32,9 @@ export function ChatHeader({ sessionId, onMenuClick }: ChatHeaderProps) {
           />
         </picture>
         <Separator orientation="vertical" className="h-8 bg-slate-700" />
-        <span className="text-lg text-slate-300 font-medium">Assistant</span>
+        <span className="text-lg text-slate-300 font-medium">
+          Nice Assistant
+        </span>
       </div>
 
       {sessionId && (
