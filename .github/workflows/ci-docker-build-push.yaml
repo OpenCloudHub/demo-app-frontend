@@ -6,8 +6,8 @@ on:
     paths:
       - src/**
       - Dockerfile
-      - pyproject.toml
-      - uv.lock
+      - package.json
+      - pnpm-lock.yaml
       - .github/workflows/ci-docker-build-push.yaml
 
 jobs:

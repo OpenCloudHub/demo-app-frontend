@@ -1,13 +1,24 @@
+/**
+ * @fileoverview Chat input component for user message entry.
+ */
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Send } from "lucide-react";
 
+/** Props for the ChatInput component */
 interface ChatInputProps {
+  /** Callback when a message is submitted */
   onSend: (message: string) => void;
+  /** Whether the input should be disabled (e.g., during loading) */
   disabled: boolean;
 }
 
+/**
+ * Text input component for composing and sending chat messages.
+ * Includes a text field and send button with keyboard support (Enter to send).
+ */
 export function ChatInput({ onSend, disabled }: ChatInputProps) {
   const [input, setInput] = useState("");
 

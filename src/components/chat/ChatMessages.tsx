@@ -1,14 +1,26 @@
+/**
+ * @fileoverview Chat messages display component.
+ */
+
 import { useRef, useEffect } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Bot, User } from "lucide-react";
 import { Message } from "@/lib/types";
 
+/** Props for the ChatMessages component */
 interface ChatMessagesProps {
+  /** Array of messages to display */
   messages: Message[];
+  /** Whether a response is currently being streamed */
   isLoading: boolean;
 }
 
+/**
+ * Displays the chat conversation history with auto-scrolling.
+ * Shows a typing indicator when waiting for AI response.
+ * Renders human messages on the right, AI messages on the left.
+ */
 export function ChatMessages({ messages, isLoading }: ChatMessagesProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
 

@@ -1,3 +1,7 @@
+/**
+ * @fileoverview Chat sidebar component for session management.
+ */
+
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import {
@@ -9,16 +13,28 @@ import {
 import { Plus, Trash2, MessageSquare } from "lucide-react";
 import { ChatSession } from "@/lib/types";
 
+/** Props for the ChatSidebar component */
 interface ChatSidebarProps {
+  /** Whether the sidebar sheet is open */
   open: boolean;
+  /** Callback when the open state changes */
   onOpenChange: (open: boolean) => void;
+  /** Array of chat sessions to display */
   chats: ChatSession[];
+  /** ID of the currently active chat */
   activeChat: string | null;
+  /** Callback to create a new chat session */
   onNewChat: () => void;
+  /** Callback when a chat is selected */
   onSelectChat: (id: string) => void;
+  /** Callback when a chat is deleted */
   onDeleteChat: (id: string) => void;
 }
 
+/**
+ * Slide-out sidebar for managing chat sessions.
+ * Displays chat history and allows creating/deleting sessions.
+ */
 export function ChatSidebar({
   open,
   onOpenChange,

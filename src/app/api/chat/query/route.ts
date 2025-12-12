@@ -1,9 +1,24 @@
+/**
+ * @fileoverview API route for streaming chat queries to the backend.
+ *
+ * This route proxies chat queries to the GenAI backend service,
+ * injecting OpenTelemetry trace context (traceparent header) for
+ * distributed tracing across services.
+ */
+
 import { NextRequest } from "next/server";
 import { context, propagation } from "@opentelemetry/api";
 import { logger } from "@/lib/logger";
 
+/** Backend API URL - defaults to localhost for development */
 const API_URL = process.env.API_URL || "http://localhost:8000";
 
+/**
+ * POST handler for chat query requests.
+ *
+ * Forwards the query to the backend RAG service and streams
+ * the response back to the client using Server-Sent Events.
+ */
 export async function POST(request: NextRequest) {
   const body = await request.json();
 

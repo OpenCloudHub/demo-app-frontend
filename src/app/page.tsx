@@ -1,3 +1,15 @@
+/**
+ * @fileoverview Main chat application page component.
+ *
+ * This is the primary page of the demo-app-frontend, providing a chat
+ * interface for interacting with the GenAI backend RAG system.
+ *
+ * Features:
+ * - Session management (create, switch, delete)
+ * - Real-time streaming responses via SSE
+ * - Responsive design with collapsible sidebar
+ */
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -12,6 +24,12 @@ import {
 import { ChatSession } from "@/lib/types";
 import { createSession, deleteSession, streamQuery } from "@/lib/api";
 
+/**
+ * Main Chat page component.
+ *
+ * Manages chat sessions and handles communication with the backend.
+ * Initializes a default session on mount and supports multiple concurrent sessions.
+ */
 export default function Chat() {
   const [chats, setChats] = useState<ChatSession[]>([]);
   const [activeChat, setActiveChat] = useState<string | null>(null);

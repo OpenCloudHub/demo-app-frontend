@@ -1,12 +1,23 @@
+/**
+ * @fileoverview Chat application header component.
+ */
+
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 
+/** Props for the ChatHeader component */
 interface ChatHeaderProps {
+  /** Current session ID to display (truncated) */
   sessionId: string | null;
+  /** Callback when the menu button is clicked */
   onMenuClick: () => void;
 }
 
+/**
+ * Header component displaying the app branding and session info.
+ * Includes a hamburger menu button to open the sidebar.
+ */
 export function ChatHeader({ sessionId, onMenuClick }: ChatHeaderProps) {
   return (
     <header className="flex items-center gap-4 p-4 border-b border-slate-700">
